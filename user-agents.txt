@@ -1,0 +1,4 @@
+MSF User-Agent string:
+Mozilla/4.0 (compatible; MSIE 6.1; Windows NT)
+### --> This is the default one, and can be changed as it is a parameter.
+### --> Generally the NT has a version number after it in a real string.
