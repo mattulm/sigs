@@ -1,0 +1,5 @@
+# Snort rules by Didier Stevens (http://DidierStevens.com)
+# 2015/05/01 - 2015/05/10
+# Thanks to Nathan Fowler for helping out with performance optimization
+# I start numbering my rules at SID 1618000
+alert tcp $HOME_NET any -> $EXTERNAL_NET $HTTP_PORTS (msg:"Metasploit Meterpreter"; flow:to_server,established; content:"RECV"; http_client_body; depth:4; fast_pattern; isdataat:!0,relative; urilen:23<>24,norm; content:"POST"; pcre:"/^\/[a-z0-9]{4,5}_[a-z0-9]{16}\/$/Ui"; classtype:trojan-activity; reference:url,blog.didierstevens.com/2015/05/11/detecting-network-traffic-from-metasploits-meterpreter-reverse-http-module/; sid:1618008; rev:1;)
